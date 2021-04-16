@@ -1,0 +1,7 @@
+@import './../GenericStyles/generic.scss';
+
+aside{
+	@extend %column-flex;
+	border-left: 1px solid #333;
+	padding:20px;
+}
