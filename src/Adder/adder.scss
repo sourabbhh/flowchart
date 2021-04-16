@@ -1,0 +1,26 @@
+@import "./../GenericStyles/generic.scss";
+
+%flow-line {
+	content: "";
+	height: 20px;
+	width: 1px;
+	border-left: 1px solid black;
+}
+.workflow-adder {
+	// margin:10px;
+	@extend %justify-center;
+	@extend %column-flex;
+	& > .adder {
+		width: 230px;
+		height: 60px;
+		border: 1px solid #ddd;
+		@extend %justify-center;
+		// align-items: center;
+	}
+	&::after {
+		@extend %flow-line;
+	}
+	&::before {
+		@extend %flow-line;
+	}
+}
