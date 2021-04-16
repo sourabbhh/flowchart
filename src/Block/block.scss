@@ -1,0 +1,41 @@
+@import "./../GenericStyles/generic.scss";
+
+.workflow_card {
+	@extend %justify-center;
+	.bubble {
+		@extend %justify-center;
+		align-items: center;
+		width: 150px;
+		height: 50px;
+		border-radius: 5px;
+	}
+	&.--green {
+		.bubble {
+			background-color: $green;
+			&.sidebar {
+				@include sidebarActions($green);
+			}
+		}
+	}
+	&.--yellow {
+		.bubble {
+			background-color: $yellow;
+			&.sidebar {
+				@include sidebarActions($yellow);
+			}
+		}
+	}
+	&.--red {
+		.bubble {
+			background-color: $red;
+			&.sidebar {
+				@include sidebarActions($red);
+			}
+		}
+	}
+	&.--gray-dark {
+		.bubble {
+			@include sidebarActions($grey-dark);
+		}
+	}
+}

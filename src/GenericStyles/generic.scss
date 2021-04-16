@@ -1,0 +1,29 @@
+// extends:
+%justify-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+%column-flex {
+	display: flex;
+	flex-direction: column;
+}
+
+//mixins
+@mixin sidebarActions($color){
+	@include borderWithoutBg($color);
+	width: 100px;
+	height: 35px;
+	margin: 10px;
+}
+
+@mixin borderWithoutBg($color) {
+	background-color: unset;
+	border: 2px solid $color;
+}
+
+//colors
+$green:#4a8a70;
+$yellow: #cba46d;
+$red: #b7627a;
+$grey-dark: #444;
