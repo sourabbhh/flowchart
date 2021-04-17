@@ -1,7 +1,13 @@
 # Marketing Workflow:
 A tool from where you can create marketing workflows where you can build the steps to send email, sms etc and you can also add conditional logic to define the tree. Application is made with React.js library.
 
-### Running locally
+## Built With
+* [React](https://reactjs.org/)
+
+## Deployed link
+* [FlowChart](https://flowchart-479e2.web.app/)
+
+## Running locally
 In the project directory, you can run:
 ### `npm start`
 Runs the app in the development mode.\
