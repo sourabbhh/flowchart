@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Marketing Workflow:
+A tool from where you can create marketing workflows where you can build the steps to send email, sms etc and you can also add conditional logic to define the tree. Application is made with React.js library.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
+### Running locally
 In the project directory, you can run:
-
 ### `npm start`
-
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
-
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Flow
+Three major components:
+1. ```Block``` (block for eg, send sms, email, etc. which are draggable)
+2. ```Adder``` (section with + icon on which block is dropped after dragging)
+3. ```Conditional``` (if/else)
+for displaying the workflow.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+All data is getting stored in state which is of type array. I will either contain a number or an object which properties if and else.
+Example of Data Structure-
+<pre>[1,2,3,{
+	else:[],
+	if:[3,3]
+}];</pre>
+1 signifies "Action1" block
+2 signifies "Action2" block
+3 signifies "Action3" block
+Object signies a If/else condition is there.
 
-### `npm run eject`
+function ```renderComp``` in ```App.js``` is handling the rendering respective components in sequence as expected.
+When array has numbers, it will render ```Blocks``` with respective adders, if encounters an object, that means Conditional block, it will render ```Conditional``` component, which recusively calls ```renderComp``` function again.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+There is a prop/argument ```conditionPos``` for  ```Conditional``` block and ```updateData```, which is keeping track of the if else position in the heirarchy. Data is updated in state according to conditionPos and index whose value is given by ```Adder``` component on which ```Block``` is dropped.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+On data updation, as state changes, Data array will be updated in ```localStorage``` inside ```useEffect``` hook
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Know Issue
+Needed CSS work on if/else block as it is not aligning with the blocks above it in nested if/else. 
