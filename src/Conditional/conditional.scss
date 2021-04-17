@@ -1,0 +1,19 @@
+.condition-container{
+	display: flex;
+	justify-content: center;
+	border-top: 1px dashed #666;
+	.if-split{
+		&::before{
+			content: "Yes";
+			text-align: center;
+			display: block;
+		}
+	}
+	.else-split{
+		&::before{
+			content: "No";
+			text-align: center;
+			display: block;
+		}
+	}
+}
