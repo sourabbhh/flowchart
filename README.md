@@ -3,6 +3,9 @@ A tool from where you can create marketing workflows where you can build the ste
 
 ## Built With
 * [React](https://reactjs.org/)
+* [SCSS](https://sass-lang.com/)
+* [HTML5 & CSS3](https://www.w3.org/)
+* [JavaScript]()
 
 ## Deployed link
 * [FlowChart](https://flowchart-479e2.web.app/)
