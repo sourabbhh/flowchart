@@ -6,6 +6,7 @@ A tool from where you can create marketing workflows where you can build the ste
 
 ## Deployed link
 * [FlowChart](https://flowchart-479e2.web.app/)
+![FlowChart Screenshot](screeshot.png "FlowChart Screenshot")
 
 ## Running locally
 In the project directory, you can run:
